@@ -1,25 +1,47 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Alert, Button, StatusBar, Platform, View, Dimensions } from 'react-native';
-import { useDimensions, useDeviceOrientation } from '@react-native-community/hooks';
+import { View } from 'react-native';
+
 
 export default function App() {
-  const { landscape } = useDeviceOrientation();
-  return (
 
-    <SafeAreaView style={[styles.container]} >
+  return (
+    <View style={{
+      backgroundColor: "#fff",
+      flex: 1,
+      flexDirection: "row", //sets main axis
+      justifyContent: "center", //main axis alignment
+      alignItems: "center", //secondary axis
+      flexWrap: "wrap",
+    }}>
       <View style={{
-        backgroundColor: "dodgerblue",
-        width: "100%",
-        height: landscape ? '100%' : '30%',
-      }}></View>
-    </SafeAreaView >
+        backgroundColor: 'dodgerblue',
+        width: 100,
+        height: 300,
+
+      }} />
+      <View style={{
+        backgroundColor: 'gold',
+        width: 100,
+        height: 100,
+      }} />
+      <View style={{
+        backgroundColor: 'tomato',
+        width: 100,
+        height: 100,
+      }} />
+      <View style={{
+        backgroundColor: 'grey',
+        width: 100,
+        height: 100,
+      }} />
+      <View style={{
+        backgroundColor: 'greenyellow',
+        width: 100,
+        height: 100,
+      }} />
+
+    </View>
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
