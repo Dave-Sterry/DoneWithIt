@@ -1,6 +1,9 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
+
+import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
+
 const messages = [
   {
     id: 1,
@@ -18,18 +21,23 @@ const messages = [
 
 function Messages(props) {
   return (
-    <FlatList
-      data={messages}
-      keyExtractor={(messages) => messages.id.toString()}
-      renderItem={({ item }) => (
-        <ListItem
-          title={item.title}
-          subTitle={item.description}
-          image={item.image}
-        />
-      )}
-    />
+    <Screen>
+      <FlatList
+        data={messages}
+        keyExtractor={(messages) => messages.id.toString()}
+        renderItem={({ item }) => (
+          <ListItem
+            title={item.title}
+            subTitle={item.description}
+            image={item.image}
+          />
+        )}
+        ItemSeparatorComponent={() => (
+          <View style={{ width: "100%", height: 1, backgroundColor: "#000" }} />
+        )}
+      />
+    </Screen>
   );
 }
-
+const styles = StyleSheet.create({});
 export default Messages;
