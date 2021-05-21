@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Text, TextInput, View } from "react-native";
+import AppTextInput from "./app/components/AppTextInput";
 import Screen from "./app/components/Screen";
 
 export default function App() {
@@ -7,16 +8,7 @@ export default function App() {
 
   return (
     <Screen>
-      <Text>{firstName}</Text>
-      <TextInput
-        keyboardType="numeric"
-        onChangeText={(text) => setFirstName(text)}
-        placeholder="first name"
-        style={{
-          borderBottomColor: "#ccc",
-          borderBottomWidth: 1,
-        }}
-      />
+      <AppTextInput placeholder="username" icon="email" />
     </Screen>
   );
 }
